@@ -13,22 +13,22 @@ env:
   - IMAGE=opensuse/leap:latest DOCKERFILE=opensuse
   - IMAGE=opensuse/tumbleweed:latest DOCKERFILE=opensuse
 # ppc64le support code  
-  - IMAGE=ubuntu:latest DOCKERFILE=debian
-    arch: ppc64le
-  - IMAGE=ubuntu:rolling DOCKERFILE=debian
-    arch: ppc64le
-  - IMAGE=ubuntu:devel DOCKERFILE=debian
-    arch: ppc64le
-  - IMAGE=debian:stable DOCKERFILE=debian
-    arch: ppc64le
-  - IMAGE=debian:testing DOCKERFILE=debian
-    arch: ppc64le
-  - IMAGE=debian:unstable DOCKERFILE=debian
-    arch: ppc64le
-  - IMAGE=opensuse/leap:latest DOCKERFILE=opensuse
-    arch: ppc64le
-  - IMAGE=opensuse/tumbleweed:latest DOCKERFILE=opensuse
-    arch: ppc64le
+  - arch: ppc64le  
+    IMAGE=ubuntu:latest DOCKERFILE=debian
+  - arch: ppc64le
+    IMAGE=ubuntu:rolling DOCKERFILE=debian
+  - arch: ppc64le
+    IMAGE=ubuntu:devel DOCKERFILE=debian
+  - arch: ppc64le
+    IMAGE=debian:stable DOCKERFILE=debian
+  - arch: ppc64le
+    IMAGE=debian:testing DOCKERFILE=debian
+  - arch: ppc64le
+    IMAGE=debian:unstable DOCKERFILE=debian
+  - arch: ppc64le
+    IMAGE=opensuse/leap:latest DOCKERFILE=opensuse
+  - arch: ppc64le
+    IMAGE=opensuse/tumbleweed:latest DOCKERFILE=opensuse
 jobs:
   allow_failures:
     - env: IMAGE=debian:stable DOCKERFILE=debian
