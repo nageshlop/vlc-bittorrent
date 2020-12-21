@@ -1,5 +1,8 @@
 language: cpp
 os: linux
+arch:
+  - amd64
+  - ppc64le
 dist: bionic
 services:
   - docker
@@ -19,6 +22,18 @@ jobs:
     - env: IMAGE=debian:unstable DOCKERFILE=debian
     - env: IMAGE=opensuse/leap:latest DOCKERFILE=opensuse
     - env: IMAGE=opensuse/tumbleweed:latest DOCKERFILE=opensuse
+#ppc64le support code
+    - env: IMAGE=debian:stable DOCKERFILE=debian
+      arch: ppc64le
+    - env: IMAGE=debian:testing DOCKERFILE=debian
+      arch: ppc64le
+    - env: IMAGE=debian:unstable DOCKERFILE=debian
+      arch: ppc64le
+    - env: IMAGE=opensuse/leap:latest DOCKERFILE=opensuse
+      arch: ppc64le
+    - env: IMAGE=opensuse/tumbleweed:latest DOCKERFILE=opensuse
+      arch: ppc64le
+
 before_install:
   - docker build --build-arg IMAGE=$IMAGE -t img -f test/dockerfiles/Dockerfile.$DOCKERFILE .
 script:
